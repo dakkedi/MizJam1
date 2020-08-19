@@ -6,10 +6,15 @@ public class PlayerController : MonoBehaviour
 {
     public Animator Animator;
     public float Speed = 5f; // Speed defaults to 5 if nothing set in unity
+    public GameObject Projectile;
+    public float ShootingCooldownStart;
+
     private float H; // Horizontal input
     private float V; // Vertical input
     private float MoveLimiter = 0.7f;
     private Rigidbody2D body;
+    private float ShootingCooldown;
+
     public void Start()
     {
         body = GetComponent<Rigidbody2D>(); // Fetch scripts gameobjects Rigidbody
@@ -27,6 +32,24 @@ public class PlayerController : MonoBehaviour
         else
         {
             Animator.SetFloat("Speed", Mathf.Abs(0));
+        }
+
+        Shoot();
+    }
+
+    private void Shoot()
+    {
+        if (ShootingCooldown <= 0)
+        {
+            if (Input.GetKey("space"))
+            {
+                Instantiate(Projectile, transform.position, new Quaternion());
+                ShootingCooldown = ShootingCooldownStart;
+            }
+        }
+        else
+        {
+            ShootingCooldown -= Time.deltaTime;
         }
     }
 
