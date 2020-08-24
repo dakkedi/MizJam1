@@ -12,6 +12,7 @@ TagManager:
   - Tens
   - Health
   - Number
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

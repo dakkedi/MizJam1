@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public float ShootingCooldownStart;
 
     private float H; // Horizontal input
-    private float V; // Vertical input
     private float MoveLimiter = 0.7f;
     private Rigidbody2D body;
     private float ShootingCooldown;
@@ -24,8 +23,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         H = Input.GetAxisRaw("Horizontal");
-        V = Input.GetAxisRaw("Vertical");
-        if (H != 0 || V != 0)
+        if (H != 0)
         {
             Animator.SetFloat("Speed", Mathf.Abs(1));
         }
@@ -56,12 +54,11 @@ public class PlayerController : MonoBehaviour
 	private void FixedUpdate()
 	{
         // Diagonal fix
-        if (H != 0 && V != 0)
+        if (H != 0)
         {
             H *= MoveLimiter;
-            V *= MoveLimiter;
         }
             
-        body.velocity = new Vector2(H * Speed, V * Speed);
+        body.velocity = new Vector2(H * Speed, 0);
 	}
 }

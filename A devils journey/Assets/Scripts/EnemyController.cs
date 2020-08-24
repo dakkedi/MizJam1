@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public float EnemySpeed;
     public int Health;
 	public int Damage;
+	public int WorthScore;
     
 	private GameController GameController;
 
@@ -24,8 +25,11 @@ public class EnemyController : MonoBehaviour
 	public void TakeDamage(int value)
 	{
         Health -= value;
-        if (Health <= 0) 
-		    Destroy(gameObject);
+		if (Health <= 0)
+		{
+			Destroy(gameObject);
+			GameController.CheckScore(WorthScore);
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)

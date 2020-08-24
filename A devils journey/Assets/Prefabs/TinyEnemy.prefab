@@ -103,6 +103,11 @@ PrefabInstance:
       propertyPath: Damage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7604451147396453361, guid: ade9d9b3de5f7a044abe790fd6ec4e08,
+        type: 3}
+      propertyPath: WorthScore
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7604451147396453366, guid: ade9d9b3de5f7a044abe790fd6ec4e08,
         type: 3}
       propertyPath: m_Name

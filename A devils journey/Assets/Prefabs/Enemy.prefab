@@ -129,8 +129,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemySpeed: 1
-  Health: 3
+  Health: 5
   Damage: 2
+  WorthScore: 2
+  PlayerObject: {fileID: 1050539113000702401, guid: 1053785b278a60546adee6f8c9cda767,
+    type: 3}
 --- !u!61 &-6007504235601107067
 BoxCollider2D:
   m_ObjectHideFlags: 0

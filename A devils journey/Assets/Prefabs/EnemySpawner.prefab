@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4887037745822648849
+--- !u!1 &5864530090191154012
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4887037745822648852}
-  - component: {fileID: 4887037745822648851}
-  - component: {fileID: 4887037745822648850}
+  - component: {fileID: 5864530090191154015}
+  - component: {fileID: 5864530090191154014}
+  - component: {fileID: 5864530090191154013}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4887037745822648852
+--- !u!4 &5864530090191154015
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4887037745822648849}
+  m_GameObject: {fileID: 5864530090191154012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 5.73, z: 0}
-  m_LocalScale: {x: 11, y: 0.15, z: 1}
+  m_LocalPosition: {x: 0.03, y: 5.56, z: 0}
+  m_LocalScale: {x: 8.49, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &4887037745822648851
+--- !u!61 &5864530090191154014
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4887037745822648849}
+  m_GameObject: {fileID: 5864530090191154012}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -58,17 +58,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4887037745822648850
+--- !u!114 &5864530090191154013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4887037745822648849}
+  m_GameObject: {fileID: 5864530090191154012}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e44bca1fe6248634dbd9394b45de7ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 7604451147396453366, guid: ade9d9b3de5f7a044abe790fd6ec4e08, type: 3}
-  EnemySpawnTimerStart: 2
+  Enemies:
+  - {fileID: 41314270306628434, guid: 32d2b7c0d19e9fc4d8d47d0f77be22d9, type: 3}
+  - {fileID: 7604451147396453366, guid: ade9d9b3de5f7a044abe790fd6ec4e08, type: 3}
+  - {fileID: 7874911745418308908, guid: f4553c7819ff5014eb7af7f7983b293d, type: 3}
+  EnemySpawnTimerStart: 3

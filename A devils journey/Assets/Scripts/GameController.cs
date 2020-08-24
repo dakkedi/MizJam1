@@ -8,14 +8,19 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public int BarrierHealth;
+    public int Score;
+    public int MaxScoreToNextLevel;
     public GameObject NumberPrefab;
     public GameObject Tens;
     public GameObject Singles;
+
+    private EnemySpawnerController EnemySpawnerController;
     private NumberController TensController;
     private NumberController SinglesController;
 
     private void Start()
 	{
+        EnemySpawnerController = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawnerController>();
         Tens = Instantiate(NumberPrefab, Tens.transform);
         Singles = Instantiate(NumberPrefab, Singles.transform);
         TensController = Tens.GetComponent<NumberController>();
@@ -25,6 +30,7 @@ public class GameController : MonoBehaviour
 
     private void SetHealth(int newHealth)
     {
+        if (newHealth < 0) newHealth = 0;
         if (newHealth.ToString().Length > 1)
         {
             var ten = int.Parse(newHealth.ToString()[0].ToString());
@@ -55,6 +61,26 @@ public class GameController : MonoBehaviour
 
     private void TriggerGameOver()
     {
+        StartCoroutine(CoroutineEndGame());
+    }
+
+    private IEnumerator CoroutineEndGame()
+    {
+        EnemySpawnerController.EnemySpawnTimerStart = -20;
+        EnemySpawnerController.EnemySpawnTimer = 0;
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(0);
+    }
+
+    public void CheckScore(int incomingScore)
+    {
+		for (int i = 0; i < incomingScore; i++)
+		{
+            Score++;
+            if (Score % MaxScoreToNextLevel == 0)
+            {
+                EnemySpawnerController.SetIncreaseDifficulty();
+            }
+		}
     }
 }
